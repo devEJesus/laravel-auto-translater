@@ -9,11 +9,10 @@ A Laravel package that automatically translates content based on user input. Thi
 composer require edgar/laravel-auto-translator
 ```
 
-2. **Add the API key to your `.env` file**:
-   To use Deepl API, you need to obtain an API key from Deepl (https://www.deepl.com/pro) and set it in your `.env` file.
-    ```
-   TRANSLATE_API_KEY=your_deepl_api_key
-   ```
+2. **Add the API key to your `.env` file**: To use Deepl API, you need to obtain an API key from Deepl (https://www.deepl.com/pro) and set it in your `.env` file.
+ ```
+TRANSLATE_API_KEY=your_deepl_api_key
+```
 
 ## Usage
 
