@@ -6,19 +6,13 @@ A Laravel package that automatically translates content based on user input. Thi
 
 1. **Install the package** via Composer:
 ```   
-composer require your-vendor/auto-translator
+composer require edgar/laravel-auto-translator
 ```
 
 2. **Add the API key to your `.env` file**:
    To use Deepl API, you need to obtain an API key from Deepl (https://www.deepl.com/pro) and set it in your `.env` file.
     ```
    TRANSLATE_API_KEY=your_deepl_api_key
-   ```
-
-3. **Publish the package configuration (optional)**:
-   If you want to customize the configuration, publish the package configuration file.
-    ```
-   php artisan vendor:publish --provider="YourVendor\AutoTranslator\AutoTranslatorServiceProvider"
    ```
 
 ## Usage
