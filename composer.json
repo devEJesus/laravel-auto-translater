@@ -1,5 +1,5 @@
 {
-    "name": "edgar/laravel-auto-translator",
+    "name": "ejesus/laravel-auto-translator",
     "license": "MIT",
     "description": "A Laravel package that leverages the DeepL Translation API to automatically translate all your language files based on an existing translation, making multilingual projects faster and easier to manage.",
     "type": "library",
