@@ -66,6 +66,11 @@ final readonly class Translator
         }
     }
 
+    private function matches(array $matches): string
+    {
+        return ":{$matches[1]} ";  // Replace with :param
+    }
+
     private function decodeParams(array $translations): array
     {
         $processed = [];
@@ -77,16 +82,19 @@ final readonly class Translator
             } else {
                 // Decode <param> tags back into :param format
                 $processed[$key] = preg_replace_callback(
-                    '/<param>(\w+)<\/param>/',  // Regex to match <param>...</param>
-                    function ($matches) {
-                        return ":{$matches[1]} ";  // Replace with :param
-                    },
+                    '/<param>(\w+)<\/param>/',
+                    [$this, 'matches'],
                     $value
                 );
             }
         }
 
         return $processed;
+    }
+
+    private function encodeMatches(array $matches): string
+    {
+        return "<param>{$matches[1]}</param>";
     }
 
     private function encodeParams(array $translations): array
@@ -100,9 +108,7 @@ final readonly class Translator
             } else {
                 $replace = (string) preg_replace_callback(
                     '/:(\w+)/',
-                    function ($matches) {
-                        return "<param>{$matches[1]}</param>";
-                    },
+                    [$this, 'encodeMatches'],
                     $value
                 );
                 $processed[$key] = htmlspecialchars_decode($replace);

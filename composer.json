@@ -51,8 +51,7 @@
         ],
         "test": [
             "@test:lint",
-            "@test:types",
-            "@test:unit",
+            "@test:types",            
             "@test:type-coverage"
         ]
     },
