@@ -1,0 +1,63 @@
+{
+    "name": "edgar/laravel-auto-translator",
+    "description": "A Laravel package that leverages the DeepL Translation API to automatically translate all your language files based on an existing translation, making multilingual projects faster and easier to manage.",
+    "type": "library",
+    "require": {
+        "php": "^8.3.0",
+        "laravel/framework": "^11.31",
+        "guzzlehttp/guzzle": "^7.9",
+        "nunomaduro/termwind": "^2.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.9",
+        "laravel/pint": "^1.18.1",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-type-coverage": "^3.1",
+        "phpstan/phpstan": "^1.12.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelAutoTranslator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelAutoTranslator\\Providers\\LaravelAutoTranslatorProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "devEJesus",
+            "email": "dev.e.jesus@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "lint": "pint",
+        "test:lint": "pint --test",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "pest --colors=always --coverage --min=100",
+        "test:type-coverage": [
+            "pest --type-coverage --min=99.5"
+        ],
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit",
+            "@test:type-coverage"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
